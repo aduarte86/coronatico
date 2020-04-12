@@ -10,8 +10,11 @@
             <p>Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> </p>
         </div>
         <div id="main" style="display: block; padding: 10px;">
-            <div id="container1" style="width:550px; height:600px;">
+            <div id="container1" style="width:800px; height:400px; display: block;">
                 <canvas id="line-chart" width="800" height="500"></canvas>
+            </div>
+            <div id="container1" style="width:800px; height:400px; display: block; margin-top: 150px;">
+                <canvas id="bar-chart" width="800" height="500"></canvas>
             </div>
         </div>
     </body>
@@ -82,6 +85,28 @@
                         }
                     });
             }} 
+        }
+        });
+// Grafico 2 --------------------------------
+        new Chart(document.getElementById("bar-chart"), {
+        type: 'horizontalBar',
+        data: {
+            labels: ["Abril 1","Abril 2","Abril 3"],
+            
+            datasets: [{
+                barPercentage: 0.5,
+        barThickness: 6,
+        maxBarThickness: 8,
+        minBarLength: 2,
+                backgroundColor:["rgba(63, 191, 170, 0.3)","rgba(191, 106, 63, 0.3)","rgba(191, 63, 148, 0.3)"],
+                data: [15, 20, 30]
+            }]
+        },
+        options:{
+            title: {
+                display: true,
+                text: 'Cantones con mas casos confirmados'
+            },
         }
         });
     </script>
