@@ -4,13 +4,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     </head>
-    <body>
-        <div id="bienvenida">
+    <body style="margin: 0;">
+        <div id="bienvenida" style="background-color: rgb(243, 243, 243); width: max-width; display: block; height: 100px; border-bottom: solid darkgray 1px; padding: 10px;">
             <p>Esta p&aacute;gina busca informar de manera sencilla.</p>
             <p>Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> </p>
         </div>
-        <div id="container1" style="width:550px; height:600px;">
-            <canvas id="line-chart" width="800" height="500"></canvas>
+        <div id="main" style="display: block; padding: 10px;">
+            <div id="container1" style="width:550px; height:600px;">
+                <canvas id="line-chart" width="800" height="500"></canvas>
+            </div>
         </div>
     </body>
 
