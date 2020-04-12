@@ -1,11 +1,14 @@
 <html>
     <head>
-        <title>Casos Diarios - 10 Abril</title>
+        <title>COVID-19 en Costa Rica</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     </head>
     <body>
-        
+        <div id="bienvenida">
+            <p>Esta p&aacute;gina busca informar de manera sencilla.</p>
+            <p>Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> </p>
+        </div>
         <canvas id="line-chart" width="800" height="500"></canvas>
     </body>
 
@@ -35,7 +38,7 @@
         options: {
             title: {
                 display: true,
-                text: 'Casos Diarios - 10 Abril'
+                text: 'Casos Diarios'
             },
          /*   scales: {
                 yAxes: [{
@@ -45,9 +48,7 @@
                     }
                 }]
             }, */
-            tooltips:{
-                enabled: false
-            },
+
             responsive:false,
             legend:{
                 labels:{
@@ -56,6 +57,10 @@
               }
             },
             // hover y animation es para mostrar los valores
+     /*       
+            tooltips:{
+                enabled: false
+            },*/
             hover: {
                 animationDuration: 0
             },
@@ -74,7 +79,7 @@
                            
                         }
                     });
-            }}
+            }} 
         }
         });
     </script>
