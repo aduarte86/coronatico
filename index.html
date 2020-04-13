@@ -47,18 +47,9 @@
                 display: true,
                 text: 'Casos Diarios'
             },
-         /*   scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 50
-                    }
-                }]
-            }, */
             legend:{
                 labels:{
                     usePointStyle: true,
-                    
               }
             },
             // hover y animation es para mostrar los valores
@@ -91,22 +82,33 @@
         new Chart(document.getElementById("bar-chart"), {
         type: 'horizontalBar',
         data: {
-            labels: ["Abril 1","Abril 2","Abril 3"],
-            
+            labels: ["San José","Desamparados","San Carlos","Alajuela", "Curridabat"],
             datasets: [{
-                barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-                backgroundColor:["rgba(63, 191, 170, 0.3)","rgba(191, 106, 63, 0.3)","rgba(191, 63, 148, 0.3)"],
-                data: [15, 20, 30]
+                backgroundColor:["rgba(63, 191, 170, 0.3)","rgba(191, 63, 63, 0.3)","rgba(191, 63, 148, 0.3)",
+                                "rgba(191, 106, 63, 0.3)","rgba(180, 191, 63, 0.3)"],
+                borderColor:["rgba(63, 191, 170, 0.7)","rgba(191, 63, 63, 0.7)","rgba(191, 63, 148, 0.7)",
+                                "rgba(191, 106, 63, 0.7)","rgba(180, 191, 63, 0.7)"],
+                borderSkipped:"right",
+                data: [32, 20, 20,10,10]
             }]
         },
         options:{
             title: {
                 display: true,
-                text: 'Cantones con mas casos confirmados'
+                text: 'Cantones con mayor crecimiento en Abril'
             },
+            legend:{
+                display: false
+            },
+            scales:{
+                xAxes:[{
+                    ticks: {
+                        max: 35,
+                        min: 0,
+                        stepSize: 10
+                    }
+                }]
+            }
         }
         });
     </script>
