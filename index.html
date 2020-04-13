@@ -6,16 +6,18 @@
     </head>
     <body style="margin: 0;">
         <div id="bienvenida" style="background-color: rgb(243, 243, 243); width: max-width; display: block; height: 100px; border-bottom: solid darkgray 1px; padding: 10px;">
-            <p>Esta p&aacute;gina busca informar de manera sencilla.</p>
+            <p>COVID-19 en Costa Rica.</p>
             <p>Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> </p>
-            <p><a href="#line-chart">Casos Diarios</a> | <a href="#bar-chart">Cantones con m&aacute;s crecimiento</a> |</p>
+            <p><a href="#line-chart">Condici&oacuten y Situaci&oacuten Cl&iacutenica</a> | <a href="#bar-chart">Cantones con m&aacute;s crecimiento</a> |</p>
         </div>
         <div id="main" style="display: block; padding: 10px;">
             <div id="container1" style="width:800px; height:400px; display: block;">
                 <canvas id="line-chart" width="800" height="500"></canvas>
+                <a href="#bienvenida">Volver</a>
             </div>
             <div id="container1" style="width:800px; height:400px; display: block; margin-top: 150px;">
                 <canvas id="bar-chart" width="800" height="500"></canvas>
+                <a href="#bienvenida">Volver</a>
             </div>
         </div>
     </body>
@@ -46,7 +48,7 @@
         options: {
             title: {
                 display: true,
-                text: 'Casos Diarios'
+                text: 'Condicion y Situacion Clinica'
             },
             legend:{
                 labels:{
@@ -86,12 +88,16 @@
             labels: ["San José","Desamparados","San Carlos","Alajuela", "Curridabat"],
             datasets: [{
                 label:"Abril 1",
-                backgroundColor:"rgba(63, 191, 170, 0.3)",
+                backgroundColor:"rgba(255, 206, 86, 0.3)",
+                borderColor:"rgba(255, 206, 86)",
+                borderWidth:1,
                 data: [42, 17, 9,61,12]
             },
             {
                 label:"Abril 12",
-                backgroundColor:"rgba(191, 63, 148, 0.3)",
+                backgroundColor:"rgba(54, 162, 235, 0.3)",
+                borderColor:"rgba(54, 162, 235)",
+                borderWidth:1,
                 data: [74, 37, 29,71,22]
                 }
             ]
@@ -99,7 +105,7 @@
         options:{
             title: {
                 display: true,
-                text: 'Cantones con mayor crecimiento en Abril'
+                text: 'Cantones con mayor crecimiento de Casos Confirmados en Abril'
             },
             scales:{
                 xAxes:[{
@@ -117,7 +123,6 @@
                         color:"rgb(244, 244, 244,0.5)"
                     }
                 }]
-
             },
             hover: {
                 animationDuration: 0
