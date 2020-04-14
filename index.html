@@ -14,16 +14,16 @@
                 <a href="#bar-chart">Cantones con m&aacute;s crecimiento</a></p>
         </div>
         <div id="main" style="display: block; padding: 10px;">
-            <div id="container1" style="width:800px; height:400px; display: block;">
-                <canvas id="line-chart" width="800" height="500"></canvas>
+            <div class="container" style="position: relative; height:auto; width:100%; display: block;">
+                <canvas id="line-chart"></canvas>
                 <a href="#bienvenida">Subir</a>
             </div>
-            <div id="container1" style="width:800px; height:400px; display: block; margin-top: 150px;">
-                <canvas id="linebar-chart" width="800" height="500"></canvas>
+            <div class="container" style="position: relative; height:auto; width:100%; display: block;">
+                <canvas id="linebar-chart"></canvas>
                 <a href="#bienvenida">Subir</a>
             </div>
-            <div id="container1" style="width:800px; height:400px; display: block; margin-top: 150px;">
-                <canvas id="bar-chart" width="800" height="500"></canvas>
+            <div class="container" style="position: relative; height:auto; width:100%; display: block;">
+                <canvas id="bar-chart"></canvas>
                 <a href="#bienvenida">Subir</a>
             </div>
         </div>
@@ -63,6 +63,7 @@
             ]
         },
         options: {
+            responsive: true,
             title: {
                 display: true,
                 text: 'Condicion y Situacion Clinica'
