@@ -35,10 +35,10 @@
         new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-            labels: ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14"],
+            labels: ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15"],
             datasets: [
             { 
-                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66],
+                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66,67],
                 label: "Recuperados",
                 backgroundColor:"rgba(142, 195, 167,0.8)", // pinta dentro del circulo de legend (si solo es linear)
                 borderColor: "rgba(142, 195, 167)", // pinta la linea
@@ -46,7 +46,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6],
+                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6,5],
                 label: "En sala",
                 backgroundColor:"rgba(236, 209, 74,0.8)",
                 borderColor: "rgba(236, 209, 74,1)",
@@ -54,7 +54,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13],
+                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13,11],
                 label: "Cuidados Intensivos",
                 backgroundColor:"rgba(196, 88, 80,0.8)",
                 borderColor: "rgb(196, 88, 80)",
@@ -110,12 +110,12 @@
             type: 'bar',
             data: {
                 labels: ["Marzo 29","Marzo 30", "Marzo 31", "Abril 1","Abril 2","Abril 3","Abril 4","Abril 5",
-                        "Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14"],
+                        "Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15"],
                         
                 datasets: [
                 { 
                     yAxisID: "y-axis-2",
-                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6],
+                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6,8],
                     type: 'line',
                     label: "Casos Diarios",
                     backgroundColor:"rgba(121, 118, 118, 0.3)",
@@ -127,7 +127,7 @@
                 },
                 { 
                     yAxisID: "y-axis-1",
-                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549],
+                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549,555],
                     label: "Casos Activos",
                     backgroundColor:"rgba(236, 209, 74, 0.3)",
                     borderColor: "rgb(236, 209, 74)",
@@ -192,20 +192,20 @@
         new Chart(document.getElementById("bar-chart"), {
         type: 'horizontalBar',
         data: {
-            labels: ["San José","Desamparados","San Carlos", "Santa Ana"],
+            labels: ["San José","Desamparados","San Carlos"],
             datasets: [{
                 label:"Abril 1",
                 backgroundColor:"rgba(236, 128, 74, 0.3)",
                 borderColor:"rgb(236, 128, 74)",
                 borderWidth:1,
-                data: [42, 17, 9,24]
+                data: [42, 17, 9]
             },
             {
-                label:"Abril 12",
+                label:"Abril 14",
                 backgroundColor:"rgba(54, 162, 235, 0.3)",
                 borderColor:"rgb(54, 162, 235)",
                 borderWidth:1,
-                data: [75, 38, 29,35]
+                data: [77, 39, 29]
                 }
             ]
         },
