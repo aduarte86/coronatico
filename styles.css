@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+#bienvenida{
+    background-color: rgb(243, 243, 243); 
+    width: max-width; 
+    display: block; 
+    height: 45px; 
+    border-bottom: solid darkgray 1px; 
+    padding: 10px;
+}
+#menu{
+    position: absolute; 
+    left:25%; 
+    top: 10;
+}
+.menuItem{
+    margin-right: 40px;
+    text-decoration: none;
+    color: #000000;
+}
+.menuItem:hover{
+
+    color: #E83F3F;
+}
+#container1, #container2, #container3{
+    position: relative; 
+    height:auto; 
+    width:80%; 
+    display: block;
+}
+#main{
+    display: block; 
+    padding: 10px; 
+    background-color:#F8F6F6;
+}
