@@ -3,9 +3,8 @@
         <title>COVID-19 en Costa Rica</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
-
-
     </head>
     <body>
         <div id="bienvenida">
@@ -14,7 +13,7 @@
                     <a class="menuItem" id="btnGraf1" href="#">Condici&oacuten y Situaci&oacuten Cl&iacutenica</a> 
                     <a class="menuItem" id="btnGraf2" href="#">Casos Activos</a>
                     <a class="menuItem" id="btnGraf3" href="#">Cantones con m&aacute;s crecimiento</a>
-                    <a class="menuItem" id="btnGrafTodos" href="#">Todos</a>
+                    <a class="menuItem" id="btnGrafTodos" href="#">Todos los gr&aacute;ficos</a>
                 </p>
             </div>    
         </div>
@@ -30,9 +29,10 @@
             </div>
         </div>
         <div id="footer">
-            <a href="#bienvenida">Subir</a>
-            <p>COVID-19 en Costa Rica. Desarrollado por un no desarrollador</p>
-            <p>Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> </p>
+            <a id=" " href="#bienvenida">Subir</a>
+            <p>COVID-19 en Costa Rica. Desarrollado por un no desarrollador<br>
+                Los datos se obtienen a diario de <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> 
+            </p>
         </div>
     </body>
 
@@ -40,10 +40,11 @@
         new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-            labels: ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15"],
+            labels: ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8",
+                    "Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15","Abril 16"],
             datasets: [
             { 
-                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66,67],
+                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66,67, ],
                 label: "Recuperados",
                 backgroundColor:"rgba(142, 195, 167,0.8)", // pinta dentro del circulo de legend (si solo es linear)
                 borderColor: "rgba(142, 195, 167)", // pinta la linea
@@ -51,7 +52,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6,5],
+                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6,5, ],
                 label: "En sala",
                 backgroundColor:"rgba(236, 209, 74,0.8)",
                 borderColor: "rgba(236, 209, 74,1)",
@@ -59,7 +60,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13,11],
+                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13,11, ],
                 label: "Cuidados Intensivos",
                 backgroundColor:"rgba(196, 88, 80,0.8)",
                 borderColor: "rgb(196, 88, 80)",
@@ -115,12 +116,13 @@
             type: 'bar',
             data: {
                 labels: ["Marzo 29","Marzo 30", "Marzo 31", "Abril 1","Abril 2","Abril 3","Abril 4","Abril 5",
-                        "Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15"],
+                        "Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13",
+                        "Abril 14","Abril 15","Abril 16"],
                         
                 datasets: [
                 { 
                     yAxisID: "y-axis-2",
-                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6,8],
+                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6,8,],
                     type: 'line',
                     label: "Casos Diarios",
                     backgroundColor:"rgba(121, 118, 118, 0.3)",
@@ -132,7 +134,7 @@
                 },
                 { 
                     yAxisID: "y-axis-1",
-                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549,555],
+                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549,555,],
                     label: "Casos Activos",
                     backgroundColor:"rgba(236, 209, 74, 0.3)",
                     borderColor: "rgb(236, 209, 74)",
@@ -206,7 +208,7 @@
                 data: [42, 17, 9]
             },
             {
-                label:"Abril 15",
+                label:"Abril 16",
                 backgroundColor:"rgba(54, 162, 235, 0.3)",
                 borderColor:"rgb(54, 162, 235)",
                 borderWidth:1,

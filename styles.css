@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 #bienvenida{
     background-color: rgb(243, 243, 243); 
@@ -20,7 +21,6 @@ body{
     color: #000000;
 }
 .menuItem:hover{
-
     color: #E83F3F;
 }
 #container1, #container2, #container3{
@@ -33,4 +33,24 @@ body{
     display: block; 
     padding: 10px; 
     background-color:#F8F6F6;
+}
+#footer{
+    padding: 6px 20px 5px 20px;
+    background-color:  rgb(243, 243, 243);   
+    border-top: solid darkgray 1px; 
+
+    display: block;  
+    height: 65px;
+}
+#footer p{
+    float: right; 
+    text-align: right;   
+}
+#footer a{
+    color: #000000;
+}
+#linkSubir{
+    color: #000000;
+    position: relative; 
+    top: 30;
 }
