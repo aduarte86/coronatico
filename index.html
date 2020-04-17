@@ -29,9 +29,9 @@
             </div>
         </div>
         <div id="footer">
-            <a id=" " href="#bienvenida">Subir</a>
+            <a id="linkSubir" href="#bienvenida">Subir</a>
             <p>COVID-19 en Costa Rica. Desarrollado por un no desarrollador<br>
-                Los datos se obtienen a diario de <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> 
+                Los datos se obtienen a diario del <a target="_blank" href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1532-lineamientos-nacionales-para-la-vigilancia-de-la-infeccion-por-coronavirus-2019-ncov">Ministerio de Salud</a> 
             </p>
         </div>
     </body>
@@ -41,10 +41,10 @@
         type: 'line',
         data: {
             labels: ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8",
-                    "Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15","Abril 16"],
+                    "Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15","Abril 16","Abril 17"],
             datasets: [
             { 
-                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66,67, 74],
+                data: [4,6,11,12,16,18,24,29,30,42,49,56,62,66,67, 74,88],
                 label: "Recuperados",
                 backgroundColor:"rgba(142, 195, 167,0.8)", // pinta dentro del circulo de legend (si solo es linear)
                 borderColor: "rgba(142, 195, 167)", // pinta la linea
@@ -52,7 +52,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6,5, 5],
+                data: [4,6,11,12,12,12,11,8,6,7,5,5,6,6,5, 5,5],
                 label: "En sala",
                 backgroundColor:"rgba(236, 209, 74,0.8)",
                 borderColor: "rgba(236, 209, 74,1)",
@@ -60,7 +60,7 @@
                 borderWidth:3,
 
             }, { 
-                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13,11,11 ],
+                data: [9,11,13,12,14,14,14,15,13,13,13,14,14,13,11,11, 10],
                 label: "Cuidados Intensivos",
                 backgroundColor:"rgba(196, 88, 80,0.8)",
                 borderColor: "rgb(196, 88, 80)",
@@ -113,32 +113,34 @@
 // Grafico 2 ---------------------------------------
 
         new Chart(document.getElementById("linebar-chart"), {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ["Marzo 29","Marzo 30", "Marzo 31", "Abril 1","Abril 2","Abril 3","Abril 4","Abril 5",
                         "Abril 6","Abril 7","Abril 8","Abril 9","Abril 10","Abril 11","Abril 12","Abril 13",
-                        "Abril 14","Abril 15","Abril 16"],
+                        "Abril 14","Abril 15","Abril 16","Abril 17"],
                         
                 datasets: [
                 { 
                     yAxisID: "y-axis-2",
-                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6,8,16],
+                    data: [19,	16,	17, 28	,22	,19	,19	,19,13	,16,19,	37,	19,	19	,18,17,6,8,16,7],
                     type: 'line',
                     label: "Casos Diarios",
                     backgroundColor:"rgba(121, 118, 118, 0.3)",
                     borderColor: "rgb(121, 118, 118)",
-                    borderWidth:3,
+                    borderWidth:2,
                     borderDash: [5,5],
                     fill: false,
                     order:1
                 },
                 { 
                     yAxisID: "y-axis-1",
-                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549,555,564],
+                    data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,525	,536	,547,549,555,564,557],
                     label: "Casos Activos",
                     backgroundColor:"rgba(236, 209, 74, 0.3)",
                     borderColor: "rgb(236, 209, 74)",
-                    borderWidth:1,
+                    fill: false,
+
+                    borderWidth:2,
                     order:2
                 }
                 ]
@@ -159,7 +161,7 @@
                         id: 'y-axis-1',
                         ticks: {
                             max: 600,
-                            min: 0,
+                            min: 300,
                             stepSize: 100
                         },
                     }, {
@@ -212,7 +214,7 @@
                 backgroundColor:"rgba(54, 162, 235, 0.3)",
                 borderColor:"rgb(54, 162, 235)",
                 borderWidth:1,
-                data: [82, 39, 29]
+                data: [84, 42, 29]
                 }
             ]
         },
