@@ -13,6 +13,7 @@
                     <a class="menuItem" id="btnGraf1" href="#">Condici&oacuten y Situaci&oacuten Cl&iacutenica</a> 
                     <a class="menuItem" id="btnGraf2" href="#">Casos Activos</a>
                     <a class="menuItem" id="btnGraf3" href="#">Cantones con m&aacute;s crecimiento</a>
+                    <a class="menuItem" id="btnGraf4" href="#">Alajuela</a>
                     <a class="menuItem" id="btnGrafTodos" href="#">Todos los gr&aacute;ficos</a>
                 </p>
             </div>    
@@ -26,6 +27,9 @@
             </div>
             <div id="container3">                
                 <canvas id="bar-chart"></canvas>
+            </div>
+            <div id="container4">                
+                <canvas id="line-chart2"></canvas>
             </div>
         </div>
         <div id="footer">
@@ -263,26 +267,104 @@
             }} 
         }
         });
+// Grafico 4 ---------------------------------------
+// Grafico 4 ---------------------------------------
+// Grafico 4 ---------------------------------------
+
+new Chart(document.getElementById("line-chart2"), {
+            type: 'line',
+            data: {
+                labels: ["Marzo 25","Marzo 27", "Marzo 29","Marzo 31","Abril 2","Abril 4",
+                        "Abril 6","Abril 8","Abril 10","Abril 12",
+                        "Abril 14","Abril 16","Abril 18","Abril 19"],
+                        
+                datasets: [
+                { 
+                    yAxisID: "y-axis-1",
+                    data: [36,46,55,58,61,65,66,67,70,71,72,73,47,41],
+                    label: "Casos Activos",
+                    backgroundColor:"rgba(196, 88, 80, 0.3)",
+                    borderColor: "rgb(196, 88, 80)",
+                    fill: true,
+                    borderWidth:3,
+                }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Alajuela - Casos Activos'
+                },
+                legend:{
+                    labels:{
+                        usePointStyle: true,
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        position: 'left',
+                        id: 'y-axis-1',
+                        ticks: {
+                            max: 100,
+                            min: 0,
+                            stepSize: 10
+                        },
+                    }]
+                },
+                hover: {
+                    animationDuration: 0
+                },
+                animation: {
+                    duration: 0,
+                    onComplete: function () {
+                        var ctx = this.chart.ctx;
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                        ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        this.data.datasets.forEach(function (dataset) {
+                            for (var i = 0; i < dataset.data.length; i++) {
+                                    var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                                    ctx.fillText(dataset.data[i], model.x, model.y - 7);
+                            
+                            }
+                        });
+                }} 
+            }
+            });
+// JS ---------------------------------------
+// JS ---------------------------------------
+// JS ---------------------------------------
         $(document).ready(function(){
             $("#btnGraf1").click(function(){
                 $("#container1").show();
                 $("#container2").hide();
                 $("#container3").hide();
+                $("#container4").hide();     
             });
             $("#btnGraf2").click(function(){
                 $("#container2").show();
                 $("#container1").hide();
                 $("#container3").hide();
+                $("#container4").hide();     
             });
             $("#btnGraf3").click(function(){
                 $("#container3").show();
                 $("#container1").hide();
-                $("#container2").hide();            
+                $("#container2").hide();  
+                $("#container4").hide();           
+            });
+            $("#btnGraf4").click(function(){
+                $("#container4").show();         
+                $("#container1").hide();
+                $("#container2").hide();   
+                $("#container3").hide();         
             });
             $("#btnGrafTodos").click(function(){
                 $("#container1").show();
                 $("#container2").show();  
                 $("#container3").show();
+                $("#container4").show();     
             });
         });
     </script>

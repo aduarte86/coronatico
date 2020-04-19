@@ -23,10 +23,10 @@ body{
 .menuItem:hover{
     color: #E83F3F;
 }
-#container1, #container2, #container3{
+#container1, #container2, #container3, #container4{
     position: relative; 
     height:auto; 
-    width:80%; 
+    width:90%; 
     display: block;
 }
 #main{
@@ -48,9 +48,12 @@ body{
 }
 #footer a{
     color: #000000;
+  
+}
+#footer a:hover{
+    color: #E83F3F;
 }
 #linkSubir{
     color: #000000;
     position: relative; 
-    top: 30;
 }
