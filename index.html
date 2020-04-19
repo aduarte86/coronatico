@@ -140,7 +140,7 @@
                 { 
                     yAxisID: "y-axis-1",
                     data: [309,	324,	341, 369	,389	,403	,420	,436	,447	,457	,470	,506	,513	,
-                            525	,536	,547,549,555,564,557, 554,544  ],
+                            525	,536	,547,549,555,564,557, 554,543  ],
                     label: "Casos Activos",
                     backgroundColor:"rgba(236, 209, 74, 0.3)",
                     borderColor: "rgb(236, 209, 74)",
@@ -367,5 +367,12 @@ new Chart(document.getElementById("line-chart2"), {
                 $("#container4").show();     
             });
         });
+        if (window.location.href.indexOf('Alajuela') > -1) {
+           setTimeout(function(){ $('#btnGraf4').click()}, 100);
+        }
+        if (window.location.href.indexOf('CasosActivos') > -1) {
+           setTimeout(function(){ $('#btnGraf2').click()}, 100);
+        }
+        
     </script>
  </html>
