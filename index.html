@@ -14,6 +14,7 @@
                     <a class="menuItem" id="btnGraf2" href="#">Casos Activos</a>
                     <a class="menuItem" id="btnGraf3" href="#">Cantones con m&aacute;s Recuperados</a>
                     <a class="menuItem" id="btnGraf4" href="#">Alajuela</a>
+                    <a class="menuItem" id="btnGraf5" href="#">Activos VS Recuperados</a>
                     <a class="menuItem" id="btnGrafTodos" href="#">Todos los gr&aacute;ficos</a>
                 </p>
             </div>    
@@ -31,6 +32,9 @@
             <div id="container4">                
                 <canvas id="line-chart2"></canvas>
             </div>
+            <div id="container5">                
+                <canvas id="line-chart3"></canvas>
+            </div>
         </div>
         <div id="footer">
             <a id="linkSubir" href="#bienvenida">Subir</a>
@@ -42,35 +46,29 @@
 
     <script>
 
-        var diasCondicion = ["Abril 1","Abril 2","Abril 3","Abril 4","Abril 5","Abril 6","Abril 7","Abril 8",
-                             "Abril 9","Abril 10","Abril 11","Abril 12","Abril 13","Abril 14","Abril 15",
-                             "Abril 16","Abril 17","Abril 18","Abril 19","Abril 20","Abril 21","Abril 22","Abril 23","Abril 24","Abril 25","Abril 26","Abril 27","Abril 28","Abril 29"];
+        var diasCondicion = ["Abril 1","Abril 3","Abril 5","Abril 7","Abril 9","Abril 11","Abril 13","Abril 15","Abril 17","Abril 19",
+                             "Abril 21","Abril 23","Abril 25","Abril 27","Abril 29"];
 
-        var dataRecuperados =   [4,6,11,12,16,18,24,29,30,42,
-                                49,56,62,66,67,74,88,97,112,124,
-                                150,180,196,216,242,264,287,306,329];
+        var dataRecuperados =   [4,11,16,24,30,49,62,67,88,112,
+                                150,196,242,287,329];
 
-        var dataSala =          [4,6,11,12,12,12,11,8,6,7,
-                                5,5,6,6,5,5,5,6,5,5,
-                                5,3,5,5,6,8,8,8];
+        var dataSala =          [4,11,12,11,6, 5,6,5,5,5,
+                                5,5,6,8,8];
 
-        var dataCI =            [9,11,13,12,14,14,14,15,13,13,
-                                13,14,14,13,11,11,10,10,10,8,
-                                6,8,8,7,7,8,8,8];
+        var dataCI =            [9,13,14,14,13,13,14,11,10,10,
+                                6,8,7,8,8];
 //----------------
-        var dataDiario =        [28,22,19,19,19,13,16,19,37,19,	
-                                19,18,17,6,8,16,7,6,5,2,
-                                7,12,5,1,6,2,2,8,8];
+        var dataDiario =        [28,19,19,16,37,19,17,8,7,5,
+                                7,5,6,2,8];
 
-        var dataCasosActivos =  [369,389,403,420,436,447,457,470,506,513,
-                                525,536,547,549,555,564,557,554,543,532, 
-                                513,495,485,465,445,425,404,393,378];
+        var dataCasosActivos =  [369,403,436,457,506,525,547,555,557,543, 
+                                513,485,445,404,384];
 //----------------
         var dataDiasAlajuela = ["Marzo 21","Marzo 23","Marzo 25","Marzo 27", "Marzo 29","Marzo 31","Abril 2","Abril 4","Abril 6","Abril 8","Abril 10","Abril 12",
-                                 "Abril 14","Abril 16", "Abril 18","Abril 20","Abril 22","Abril 23","Abril 24","Abril 25","Abril 26","Abril 27","Abril 28","Abril 29"];
+                                 "Abril 14","Abril 16", "Abril 18","Abril 20","Abril 22","Abril 24","Abril 26","Abril 28","Abril 29"];
 
         var dataCasosAlajuela =  [25,28,36,46,55,58,61,65,66,67,70,71,
-                                  72,73,47,40,31,31,31,30,27,25,28]                 
+                                  72,73,47,40,31,31,27,28,29]                 
 
         new Chart(document.getElementById("line-chart"), {
         type: 'line',
@@ -235,14 +233,14 @@
                 backgroundColor:"rgba(127, 191, 63, 0.3)",
                 borderColor:"rgb(127, 191, 63)",
                 borderWidth:1,
-                data: [48, 22, 20]
+                data: [50, 28, 21]
             },
             {
-                label:"Casos Activos: Abril 24",
+                label:"Casos Activos: Abril 29",
                 backgroundColor:"rgba(63, 191, 191, 0.3)",
                 borderColor:"rgb(63, 191, 191)",
                 borderWidth:1,
-                data: [27, 72, 19]
+                data: [29, 70, 20]
             }
             ]
         },
@@ -349,6 +347,78 @@ new Chart(document.getElementById("line-chart2"), {
                 }} 
             }
             });
+// Grafico 5 ---------------------------------------------------------------
+
+new Chart(document.getElementById("line-chart3"), {
+            type: 'line',
+            data: {
+                labels: diasCondicion,                       
+                datasets: [
+                { 
+                    
+                    data: dataRecuperados,
+                    type: 'line',
+                    label: "Recuperados",
+                    backgroundColor:"rgba(127, 191, 63, 0.5)",
+                    borderColor: "rgb(127, 191, 63)",
+                    borderWidth:2,
+                    fill: true,
+                    order:1
+                },
+                { 
+                   
+                    data: dataCasosActivos,
+                    label: "Casos Activos",
+                    backgroundColor:"rgba(196, 88, 80, 0.2)",
+                    borderColor: "rgb(196, 88, 80)",
+                    fill: true,
+                    borderWidth:2,
+                    order:2
+                }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Casos Activos VS Recuperados'
+                },
+                legend:{
+                    labels:{
+                        usePointStyle: true,
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        position: 'left',
+                        
+                        ticks: {
+                            max: 600,
+                            min: 0,
+                            stepSize: 100
+                        },
+                    }]
+                },
+                hover: {
+                    animationDuration: 0
+                },
+                animation: {
+                    duration: 0,
+                    onComplete: function () {
+                        var ctx = this.chart.ctx;
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                        ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        this.data.datasets.forEach(function (dataset) {
+                            for (var i = 0; i < dataset.data.length; i++) {
+                                    var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                                    ctx.fillText(dataset.data[i], model.x, model.y - 7);
+                            
+                            }
+                        });
+                }} 
+            }
+            });
 // JS ---------------------------------------
 // JS ---------------------------------------
 // JS ---------------------------------------
@@ -357,32 +427,44 @@ new Chart(document.getElementById("line-chart2"), {
                 $("#container1").show();
                 $("#container2").hide();
                 $("#container3").hide();
-                $("#container4").hide();     
+                $("#container4").hide(); 
+                $("#container5").hide();    
             });
             $("#btnGraf2").click(function(){
                 $("#container2").show();
                 $("#container1").hide();
                 $("#container3").hide();
-                $("#container4").hide();     
+                $("#container4").hide();  
+                $("#container5").hide();       
             });
             $("#btnGraf3").click(function(){
                 $("#container3").show();
                 $("#container1").hide();
                 $("#container2").hide();  
-                $("#container4").hide();           
+                $("#container4").hide();
+                $("#container5").hide();               
             });
             $("#btnGraf4").click(function(){
                 $("#container4").show();         
                 $("#container1").hide();
                 $("#container2").hide();   
-                $("#container3").hide();         
+                $("#container3").hide(); 
+                $("#container5").hide();            
+            });
+            $("#btnGraf5").click(function(){
+                $("#container5").show();         
+                $("#container1").hide();
+                $("#container2").hide();   
+                $("#container3").hide(); 
+                $("#container4").hide();            
             });
             $("#btnGrafTodos").click(function(){
                 $("#container1").show();
                 $("#container2").show();  
                 $("#container3").show();
-                $("#container4").show();     
-            });
+                $("#container4").show();  
+                $("#container5").show();            
+            });  
         });
         if (window.location.href.indexOf('Alajuela') > -1) {
            setTimeout(function(){ $('#btnGraf4').click()}, 100);
@@ -392,6 +474,9 @@ new Chart(document.getElementById("line-chart2"), {
         }
         if (window.location.href.indexOf('Recuperados') > -1) {
            setTimeout(function(){ $('#btnGraf3').click()}, 100);
+        }
+        if (window.location.href.indexOf('VS') > -1) {
+           setTimeout(function(){ $('#btnGraf5').click()}, 100);
         }
         
     </script>
