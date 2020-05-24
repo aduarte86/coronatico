@@ -9,8 +9,7 @@
     <body>
         <div id="bienvenida">
             <div id="menu">
-                <p>
-                    
+                <p>   
                     <a class="menuItem" id="btnGraf2" href="#">Casos Activos</a>
                     <a class="menuItem" id="btnGraf5" href="#">Activos VS Recuperados</a>
                     <a class="menuItem" id="btnGraf1" href="#">Condici&oacuten y Situaci&oacuten Cl&iacutenica</a> 
@@ -21,14 +20,14 @@
             </div>    
         </div>
         <div id="main">
-            <div id="container1">
-                <canvas id="line-chart"></canvas>
-            </div>
             <div id="container2">
                 <canvas id="linebar-chart"></canvas>
             </div>
             <div id="container3">                
                 <canvas id="bar-chart"></canvas>
+            </div>
+            <div id="container1">
+                <canvas id="line-chart"></canvas>
             </div>
             <div id="container4">                
                 <canvas id="line-chart2"></canvas>
@@ -85,6 +84,72 @@
         var dataCantonRecuperado =        [70, 67, 37]
         var dataCantonActivo     =        [11, 60, 6]        
 
+// Grafico 1 > Casos diarios ---------------------------------------------------------------
+        new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+            labels: diasCondicion,
+            datasets: [
+            { 
+                data: dataRecuperados,
+                label: "Recuperados",
+                backgroundColor:"rgba(142, 195, 167,0.8)", // pinta dentro del circulo de legend (si solo es linear)
+                borderColor: "rgba(142, 195, 167)", // pinta la linea
+                fill: false, // sirve para no rellenar todo el espacio hacia abajo
+                borderWidth:3,
+
+            }, { 
+                data: dataSala,
+                label: "En sala",
+                backgroundColor:"rgba(236, 209, 74,0.8)",
+                borderColor: "rgba(236, 209, 74,1)",
+                fill: false,
+                borderWidth:3,
+
+            }, { 
+                data: dataCI,
+                label: "Cuidados Intensivos",
+                backgroundColor:"rgba(196, 88, 80,0.8)",
+                borderColor: "rgb(196, 88, 80)",
+                fill: false,
+                borderWidth:3,
+
+            }
+            ]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Condicion y Situacion Clinica'
+            },
+            legend:{
+                labels:{
+                    usePointStyle: true,
+              }
+            },
+            hover: {
+                animationDuration: 0
+            },
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        // esta puesto en 1 para que no escriba desde el primer punto
+                        for (var i = 1; i < dataset.data.length; i++) {
+                                var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                                ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                           
+                        }
+                    });
+            }} 
+        }
+        });
 // Grafico 2 > Casos activos ---------------------------------------------------------------
 
         new Chart(document.getElementById("linebar-chart"), {
@@ -167,7 +232,6 @@
                 }} 
             }
             });
-
 // Grafico 3 > Cantones con mas recuperados ---------------------------------------------------------------
 
         new Chart(document.getElementById("bar-chart"), {
@@ -233,73 +297,6 @@
             }} 
         }
         });
-// Grafico 1 > Casos diarios ---------------------------------------------------------------
-new Chart(document.getElementById("line-chart"), {
-        type: 'line',
-        data: {
-            labels: diasCondicion,
-            datasets: [
-            { 
-                data: dataRecuperados,
-                label: "Recuperados",
-                backgroundColor:"rgba(142, 195, 167,0.8)", // pinta dentro del circulo de legend (si solo es linear)
-                borderColor: "rgba(142, 195, 167)", // pinta la linea
-                fill: false, // sirve para no rellenar todo el espacio hacia abajo
-                borderWidth:3,
-
-            }, { 
-                data: dataSala,
-                label: "En sala",
-                backgroundColor:"rgba(236, 209, 74,0.8)",
-                borderColor: "rgba(236, 209, 74,1)",
-                fill: false,
-                borderWidth:3,
-
-            }, { 
-                data: dataCI,
-                label: "Cuidados Intensivos",
-                backgroundColor:"rgba(196, 88, 80,0.8)",
-                borderColor: "rgb(196, 88, 80)",
-                fill: false,
-                borderWidth:3,
-
-            }
-            ]
-        },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'Condicion y Situacion Clinica'
-            },
-            legend:{
-                labels:{
-                    usePointStyle: true,
-              }
-            },
-            hover: {
-                animationDuration: 0
-            },
-            animation: {
-                duration: 0,
-                onComplete: function () {
-                    var ctx = this.chart.ctx;
-                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-                    ctx.fillStyle = this.chart.config.options.defaultFontColor;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'bottom';
-                    this.data.datasets.forEach(function (dataset) {
-                        // esta puesto en 1 para que no escriba desde el primer punto
-                        for (var i = 1; i < dataset.data.length; i++) {
-                                var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-                                ctx.fillText(dataset.data[i], model.x, model.y - 5);
-                           
-                        }
-                    });
-            }} 
-        }
-        });
-
 // Grafico 4 > Alajuela ----------------------------------------------------------------------------------
 
 new Chart(document.getElementById("line-chart2"), {
