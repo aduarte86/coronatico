@@ -14,7 +14,7 @@
                     <a class="menuItem" id="btnGraf5" href="#">Activos VS Recuperados</a>
                     <a class="menuItem" id="btnGraf1" href="#">Condici&oacuten y Situaci&oacuten Cl&iacutenica</a> 
                     <a class="menuItem" id="btnGraf4" href="#">Alajuela</a>   
-             <!--       <a class="menuItem" id="btnGraf3" href="#">Cantones con m&aacute;s Recuperados</a>   -->
+                    <a class="menuItem" id="btnGraf3" href="#">Cantones con m&aacute;s Casos Activos</a>  
                     <a class="menuItem" id="btnGrafTodos" href="#">Todos los gr&aacute;ficos</a>
                 </p>
             </div>    
@@ -49,41 +49,41 @@
 
         var diasCondicion = ["Abril 1","Abril 3","Abril 5","Abril 7","Abril 9","Abril 11","Abril 13","Abril 15","Abril 17","Abril 19",
                              "Abril 21","Abril 23","Abril 25","Abril 27","Abril 29","Mayo 1","Mayo 3","Mayo 5","Mayo 7","Mayo 9","Mayo 11","Mayo 13","Mayo 15","Mayo 17","Mayo 19","Mayo 21",
-                             "Mayo 23","Mayo 25","Mayo 27","Mayo 29","Junio 1","Junio 2"];
+                             "Mayo 23","Mayo 25","Mayo 27","Mayo 29","Junio 1","Junio 3","Junio 4"];
 
 
 
         var dataRecuperados =   [4,11,16,24,30,49,62,67,88,112,
                                 150,196,242,287,329,355,386,413,445,480,517,527,542,565,577,592,
-                                607,628,639,653,676,682];
+                                607,628,639,653,676,685,687];
 
         var dataSala =          [4,11,12,11,6, 5,6,5,5,5,
                                 5,5,6,8,8,9,10,12,13,15,16,15,12,14,13,9,
-                                11,11,13,13];
+                                11,11,13,16,19];
 
         var dataCI =            [9,13,14,14,13,13,14,11,10,10,
                                 6,8,7,8,8,7,6,5,6,6,6,6,5,3,5,3,
-                                4,2,5,5];
+                                4,2,5,5,5];
 //----------------
         var dataDiario =        [28,19,19,16,37,19,17,8,7,5,
                                 7,5,6,2,8,6,6,13,4,7,9,11,13,10,16,10,
-                                7,21,28,22,28,21];
+                                7,21,28,22,28,52,37];
 
         var dataCasosActivos =  [369,403,436,457,506,525,547,555,557,543, 
                                 513,485,445,404,384,364,347,336,314,294,277,281,293,289,295,301,
-                                301,313,335,359,398,413];
+                                301,313,335,359,398,462,497];
 //----------------
         var dataDiasAlajuela = ["Marzo 21","Marzo 25", "Marzo 29","Abril 2","Abril 6","Abril 10",
                                  "Abril 14", "Abril 18","Abril 22","Abril 26","Abril 30","Mayo 3",
-                                 "Mayo 7","Mayo 11","Mayo 15","Mayo 19","Mayo 23","Mayo 28","Junio 2"];
+                                 "Mayo 7","Mayo 11","Mayo 15","Mayo 19","Mayo 23","Mayo 28","Junio 4"];
 
         var dataCasosAlajuela =  [25,36,55,61,66,70,
                                   72,47,31,27,28,26,
-                                  23,15,13,11,11,10,8]    
+                                  23,15,13,11,11,10,11]    
 //----------------
-        var dataCanton           =        ["Alajuela","Santa Jose","Santa Ana"];
-        var dataCantonRecuperado =        [70, 67, 37]
-        var dataCantonActivo     =        [11, 60, 6]        
+        var dataCanton           =        ["San Jose","San Ramon","San Carlos","Heredia","Pococi","Cañas","Abangares"];
+        var dataCantonRecuperado =        [93, 8, 30, 16]
+        var dataCantonActivo     =        [63, 41, 38, 36,23,23,19 ]        
 
 // Grafico 1 > Casos diarios ---------------------------------------------------------------
         new Chart(document.getElementById("line-chart"), {
@@ -239,15 +239,16 @@
         type: 'horizontalBar',
         data: {
             labels: dataCanton,
-            datasets: [{
-                label:"Recuperados",
-                backgroundColor:"rgba(127, 191, 63, 0.3)",
-                borderColor:"rgb(127, 191, 63)",
-                borderWidth:1,
-                data: dataCantonRecuperado
-            },
+            datasets: [
+  //          {
+    //            label:"Recuperados",
+      //          backgroundColor:"rgba(127, 191, 63, 0.3)",
+        //        borderColor:"rgb(127, 191, 63)",
+              //  borderWidth:1,
+            //    data: dataCantonRecuperado
+          //  },
             {
-                label:"Casos Activos: Mayo 1",
+                label:"Casos Activos",
                 backgroundColor:"rgba(63, 191, 191, 0.3)",
                 borderColor:"rgb(63, 191, 191)",
                 borderWidth:1,
@@ -258,12 +259,12 @@
         options:{
             title: {
                 display: true,
-                text: 'Cantones con mayor cantidad de recuperados'
+                text: 'Cantones con mayor cantidad de Casos Activos'
             },
             scales:{
                 xAxes:[{
                     ticks: {
-                        max: 85,
+                        max: 70,
                         min: 0,
                         stepSize: 10
                     },
