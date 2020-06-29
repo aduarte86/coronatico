@@ -19,8 +19,8 @@
                 </p>
             </div>    
         </div>
-        <div id="main">
-            <div id="container2">   <!-- Casos Activos -->
+        <div id="main"><!-- Casos Activos -->
+            <div id="container2">   
                 <canvas id="linebar-chart"></canvas>
             </div>
             <div id="container5">   <!-- VS -->                 
@@ -47,43 +47,31 @@
     <script>
 //----------------
 
-        var diasCondicion = ["Abril 1","Abril 3","Abril 5","Abril 7","Abril 9","Abril 11","Abril 13","Abril 15","Abril 17","Abril 19",
-                             "Abril 21","Abril 23","Abril 25","Abril 27","Abril 29","Mayo 1","Mayo 3","Mayo 5","Mayo 7","Mayo 9","Mayo 11","Mayo 13","Mayo 15","Mayo 17","Mayo 19","Mayo 21",
-                             "Mayo 23","Mayo 25","Mayo 27","Mayo 29","Junio 1","Junio 3","Junio 5","Junio 7","Junio 8"];
+        var diasCondicion = ["Marzo 22","Marzo 29","Abril 5","Abril 12","Abril 19","Abril 26","Mayo 3","Mayo 10","Mayo 17",
+                             "Mayo 24","Mayo 31","Junio 7","Junio 14","Junio 21","Junio 28"];
 
 
 
-        var dataRecuperados =   [4,11,16,24,30,49,62,67,88,112,
-                                150,196,242,287,329,355,386,413,445,480,517,527,542,565,577,592,
-                                607,628,639,653,676,685,701,704,712];
+        var dataRecuperados =         [2,	3,	16,	56,	112,	264,	386,	501,	565,
+                                    	620,	669,	704,	752,	1032,	1366];
 
-        var dataSala =          [4,11,12,11,6, 5,6,5,5,5,
-                                5,5,6,8,8,9,10,12,13,15,16,15,12,14,13,9,
-                                11,11,13,16,16,16,14];
+        var dataSala =          [6,7,12,5,5,8,10,16,14,	
+                                12,12,16,14,22,34];
 
-        var dataCI =            [9,13,14,14,13,13,14,11,10,10,
-                                6,8,7,8,8,7,6,5,6,6,6,6,5,3,5,3,
-                                4,2,5,5,3,4,5];
+        var dataCI =            [3,	6,	14,	14,	10,	8,	6,	6,	3,
+                             	3,	4,	4,	3,	4,	3];
 //----------------
-        var dataDiario =        [28,19,19,16,37,19,17,8,7,5,
-                                7,5,6,2,8,6,6,13,4,7,9,11,13,10,16,10,
-                                7,21,28,22,28,52,35,55,24];
+        var dataDiario =        [180,	140,	141,	65,	35,	44,	53,	71,	67,
+                            	126,	262,	397,	498,	917];
 
-        var dataCasosActivos =  [369,403,436,457,506,525,547,555,557,543, 
-                                513,485,445,404,384,364,347,336,314,294,277,281,293,289,295,301,
-                                301,313,335,359,398,462,552,604,620];
+        var dataCasosActivos =  [130,	309,	436,	536,	543,	425,	347,	285, 288,
+                            	300,	377,	604,	951,	1169,	1749];
 //----------------
-        var dataDiasAlajuela = ["Marzo 21","Marzo 25", "Marzo 29","Abril 2","Abril 6","Abril 10",
-                                 "Abril 14", "Abril 18","Abril 22","Abril 26","Abril 30","Mayo 3",
-                                 "Mayo 7","Mayo 11","Mayo 15","Mayo 19","Mayo 23","Mayo 28","Junio 4","Junio 8"];
-
-        var dataCasosAlajuela =  [25,36,55,61,66,70,
-                                  72,47,31,27,28,26,
-                                  23,15,13,11,11,10,11]    
+        var dataCasosAlajuela =  [26, 55    , 65,		71, 70 , 27,	26,	17,	11,	10,	8,	20,	28,	47,	18]    
 //----------------
-        var dataCanton           =        ["San Jose","San Ramon","San Carlos","Heredia","Pococi","Cañas","Abangares"];
-        var dataCantonRecuperado =        [93, 8, 30, 16]
-        var dataCantonActivo     =        [63, 41, 38, 36,23,23,19 ]        
+        var dataCanton           =        ["San Carlos","San Jose","San Ramon","Heredia","Alajuelita","Los Chiles"];
+        var dataCantonRecuperado =        [148, 154, 53, 46,26,8]
+        var dataCantonActivo     =        [77, 76, 71, 68,48,47 ]        
 
 // Grafico 1 > Casos diarios ---------------------------------------------------------------
         new Chart(document.getElementById("line-chart"), {
@@ -158,7 +146,7 @@
             data: {
                 labels: diasCondicion,                       
                 datasets: [
-                { 
+ /*               { 
                     yAxisID: "y-axis-2",
                     data: dataDiario,
                     type: 'line',
@@ -170,7 +158,7 @@
                     fill: false,
                     order:1
                 },
-                { 
+ */               { 
                     yAxisID: "y-axis-1",
                     data: dataCasosActivos,
                     label: "Casos Activos",
@@ -198,19 +186,20 @@
                         position: 'left',
                         id: 'y-axis-1',
                         ticks: {
-                            max: 700,
+                            max: 2000,
                             min: 0,
-                            stepSize: 100
+                            stepSize: 200
                         },
-                    }, {
+                    }/*, 
+                    {
                         position: 'right',
                         id: 'y-axis-2',
                         ticks: {
-                            max: 70,
+                            max: 1000,
                             min: 0,
-                            stepSize: 10
-                        },
-                    }]
+                            stepSize: 100
+                        },*/
+                    ]
                 },
                 hover: {
                     animationDuration: 0
@@ -264,7 +253,7 @@
             scales:{
                 xAxes:[{
                     ticks: {
-                        max: 70,
+                        max: 100,
                         min: 0,
                         stepSize: 10
                     },
@@ -304,7 +293,7 @@
 new Chart(document.getElementById("line-chart2"), {
             type: 'line',
             data: {
-                labels: dataDiasAlajuela,           
+                labels: diasCondicion,           
                 datasets: [
                 { 
                     yAxisID: "y-axis-1",
@@ -404,7 +393,7 @@ new Chart(document.getElementById("line-chart3"), {
                         position: 'left',
                         
                         ticks: {
-                            max: 900,
+                            max: 2000,
                             min: 0,
                             stepSize: 100
                         },
